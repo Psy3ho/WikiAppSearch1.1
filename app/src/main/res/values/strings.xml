@@ -16,4 +16,7 @@
     <string name="language_en">en</string>
     <string name="language_pl">pl</string>
     <string name="language_sk">sk</string>
+
+    <string name="retry">Retry</string>
+    <string name="post_error">An error occurred while loading the posts</string>
 </resources>

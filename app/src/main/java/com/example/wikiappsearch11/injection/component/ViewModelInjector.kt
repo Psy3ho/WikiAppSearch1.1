@@ -1,7 +1,7 @@
 package com.example.wikiappsearch11.injection.module.component
 
 import com.example.wikiappsearch11.injection.module.NetworkModule
-import com.example.wikiappsearch11.ui.ArticleListViewModel
+import com.example.wikiappsearch11.ui.article.ArticleListViewModel
 import dagger.Component
 import javax.inject.Singleton
 

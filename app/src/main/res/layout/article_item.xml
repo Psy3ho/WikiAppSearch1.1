@@ -1,83 +1,42 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app2="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app2="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.wikiappsearch11.ui.article.ArticleViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-        <androidx.cardview.widget.CardView
+        <TextView
+                android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app2:cardBackgroundColor="@color/colorBackgroundCard"
-                app2:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app2:mutableText="@{viewModel.getArticleTitle()}"
                 app2:layout_constraintEnd_toEndOf="parent"
-                app2:layout_constraintHorizontal_bias="0.0"
                 app2:layout_constraintStart_toStartOf="parent"
-                app2:layout_constraintTop_toTopOf="parent"
-                app2:layout_constraintVertical_bias="0.0">
+                app2:layout_constraintTop_toTopOf="parent"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/snippet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                app2:mutableText="@{viewModel.getArticleBody()}"
+                app2:layout_constraintEnd_toEndOf="parent"
+                app2:layout_constraintStart_toStartOf="parent"
+                app2:layout_constraintTop_toBottomOf="@+id/title"/>
 
-                <TextView
-                        android:id="@+id/title"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Nazov clanku"
-                        android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app2:layout_constraintEnd_toEndOf="parent"
-                        app2:layout_constraintStart_toStartOf="parent"
-                        app2:layout_constraintTop_toTopOf="parent"/>
 
-                <TextView
-                        android:id="@+id/information"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="Informacie"
-                        android:textAlignment="textStart"
-                        app2:layout_constraintBottom_toBottomOf="parent"
-                        app2:layout_constraintEnd_toStartOf="@+id/removeB"
-                        app2:layout_constraintStart_toStartOf="parent"
-                        app2:layout_constraintTop_toBottomOf="@+id/snippet"/>
-
-                <TextView
-                        android:id="@+id/snippet"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Lorem ipsum dolor sit amet, soluta regione urbanitas vis in, qui elit populo ut. "
-                        android:textSize="12sp"
-                        app2:layout_constraintEnd_toEndOf="parent"
-                        app2:layout_constraintStart_toStartOf="parent"
-                        app2:layout_constraintTop_toBottomOf="@+id/title"/>
-
-                <Button
-                        android:id="@+id/removeB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/button_delete"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
-                        android:textColor="@color/white"
-                        app2:layout_constraintBottom_toBottomOf="parent"
-                        app2:layout_constraintEnd_toEndOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

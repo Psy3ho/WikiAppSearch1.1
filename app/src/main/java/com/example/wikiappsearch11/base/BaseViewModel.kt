@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 import com.example.wikiappsearch11.injection.module.NetworkModule
 import com.example.wikiappsearch11.injection.module.component.DaggerViewModelInjector
 import com.example.wikiappsearch11.injection.module.component.ViewModelInjector
-import com.example.wikiappsearch11.ui.ArticleListViewModel
+import com.example.wikiappsearch11.ui.article.ArticleListViewModel
 
 abstract class BaseViewModel: ViewModel(){
     private val injector: ViewModelInjector = DaggerViewModelInjector
