@@ -22,17 +22,13 @@ class ArticleListViewModel: BaseViewModel(){
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
     val errorMessage:MutableLiveData<Int> = MutableLiveData()
-    val errorClickListener = View.OnClickListener { loadPosts() }
-
+    val errorClickListener = View.OnClickListener { loadPosts(srsearch = "error") }
 
     val articleListAdapter: ArticleListAdapter = ArticleListAdapter()
 
-    init{
-        loadPosts()
-    }
 
-    private fun loadPosts(){
-        subscription = articleApi.getArticles()
+    fun loadPosts(srsearch: String){
+        subscription = articleApi.getArticles("0","20",srsearch)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { onRetrieveArticleListStart() }
@@ -45,6 +41,9 @@ class ArticleListViewModel: BaseViewModel(){
                 { error -> onRetrieveArticleListError(error.toString()) }
             )
     }
+    /*fun loadArticlesDatabase(){
+        subscription = articleApi.getArticles()
+    }*/
 
     private fun onRetrieveArticleListStart(){
         loadingVisibility.value = View.VISIBLE
